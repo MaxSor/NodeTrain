@@ -27,11 +27,14 @@
         ],
         "quotes": [
             "error",
-            "double"
+            "single",
+            { "avoidEscape": true }
+
         ],
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "no-console":0
     }
 }
