@@ -58,10 +58,10 @@ app.use((req, res, next) => {
 	next();
 });
 
-app.get('/*', function(req, res, next) {
-	res.setHeader('Last-Modified', (new Date()).toUTCString());
-	next();
-});
+// app.get('/*', function(req, res, next) {
+// 	res.setHeader('Last-Modified', (new Date()).toUTCString());
+// 	next();
+// });
 
 var port = process.argv[2] || 8080;
 
@@ -124,16 +124,14 @@ router.route('/bears')
 .get(function(req, res) {
 	console.log('enter get');
 	Bear.find(function(err, bears) {
-		res.header("Cache-Control", "no-cache, no-store, must-revalidate");
-		res.header("Pragma", "no-cache");
-		res.header("Expires", 0);
-
-		if (err)
+		if (err) {
 			console.log('before err in Bear.find');
-		res.send(err);
-		console.log(req.fresh);
-		console.log('before res.json');
-		res.json(bears);
+			res.send(err);
+		} else {
+			console.log(req.fresh);
+			console.log('before res.json');
+			res.json(bears);
+		}
 	});
 });
 
@@ -146,13 +144,13 @@ router.route('/bears/:bear_id')
 	Bear.findById(req.params.bear_id, function(err, bear) {
 		if (err) {
 			console.log('before err in Bear.findById');
-
 			res.send('Hello');
 			//return;
+		} else {
+			console.log('before jsonbear');
+			res.json(bear);
+			console.log('after jsonbear');
 		}
-		console.log('before jsonbear');
-		res.json(bear);
-		console.log('after jsonbear');
 	});
 })
 
