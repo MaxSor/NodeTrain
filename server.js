@@ -142,14 +142,20 @@ router.route('/bears/:bear_id')
 // get the bear with that id (accessed at GET http://localhost:8080/api/bears/:bear_id)
 .get(function(req, res) {
 	Bear.findById(req.params.bear_id, function(err, bear) {
+		// if (err) {
+		// 	console.log('before err in Bear.findById');
+		// 	res.send('Hello');
+		// 	//return;
+		// } else {
+		// 	console.log('before jsonbear');
+		// 	res.json(bear);
+		// 	console.log('after jsonbear');
+		// }
 		if (err) {
-			console.log('before err in Bear.findById');
-			res.send('Hello');
-			//return;
+			res.send(err);
 		} else {
-			console.log('before jsonbear');
 			res.json(bear);
-			console.log('after jsonbear');
+			console.log('check!');
 		}
 	});
 })

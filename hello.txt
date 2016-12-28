@@ -1,0 +1,19 @@
+{
+    "uid": 1000,
+    "gid": 1000,
+    "username": "mx",
+    "homedir": "/home/mx",
+    "shell": "/usr/bin/zsh"
+}{
+    "uid": 1000,
+    "gid": 1000,
+    "username": "mx",
+    "homedir": "/home/mx",
+    "shell": "/usr/bin/zsh"
+}{
+    "uid": 1000,
+    "gid": 1000,
+    "username": "mx",
+    "homedir": "/home/mx",
+    "shell": "/usr/bin/zsh"
+}
