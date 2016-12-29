@@ -3,11 +3,17 @@ console.log('starting misc.js');
 const fs = require('fs');
 const os = require('os');
 const notes = require('./notes');
-const game = require('./game');
 
-console.log(game);
-game.nextround();
-console.log(game);
+
+//console.log(game.scores());
+//game.roundwinner(team1);
+//game.scores();
+//console.log(game.scores());
+// game.nextround();
+// //console.log(game);
+// game.nextround();
+// // console.log(game.currentRound);
+// console.log(game);
 
 // console.log(game);
 

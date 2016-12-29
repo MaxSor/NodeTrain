@@ -1,4 +1,3 @@
-const Game = require('./gamemodel');
 const csvparse = require('csv-parse');
 
 const fs = require('fs');
@@ -6,7 +5,8 @@ const stream = require('stream');
 
 var dictfile = fs.createReadStream('./dict2.csv');
 var csvparser = csvparse({
-	delimeter: ';'
+	delimiter: ';',
+	
 });
 
 var Transform = require('stream').Transform;
@@ -33,18 +33,3 @@ dictfile.pipe(csvparser).pipe(myTransform)
 setTimeout(function(){
     console.log('dict is : ' + dict);
   }, 1500);
-
-
-// records = csvparse();
-
-
-var game = new Game();
-var team1 = game.addTeam('Alpha');
-var team2 = game.addTeam('Beta');
-game.addTeamPlayer(team1, 'Max');
-game.addTeamPlayer(team1, 'Karina');
-
-game.addTeamPlayer(team2, 'Boris');
-game.addTeamPlayer(team2, 'Natasha');
-
-var teams = game.teams;
